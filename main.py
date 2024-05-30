@@ -55,12 +55,12 @@ def startMenu():
   while True:
     player2Name = input('Enter player2 name: ').strip()
 
-    if player2Name:
-      break
+    if not player2Name:
+      display_name_validation_msg()
     elif player2Name == player1Name:
       display_name_taken_msg()
     else:
-      display_name_validation_msg()
+      break
   
   while True:
     player2Marker = input('Enter player2 marker: ').strip().lower()
@@ -71,7 +71,7 @@ def startMenu():
       display_marker_taken_msg()
     else:
       break
-    
+
   clear()
   display_board(gameboard)
   
