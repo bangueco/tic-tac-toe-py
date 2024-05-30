@@ -1,9 +1,30 @@
 from os import system, name
 from classes import Player
 from validation_message import *
-from logic import display_board
+import random
 
 gameboard = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
+gameBoardWinningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+def display_board(board):
+  """
+  Display Game Board
+  :param board: represents a board
+  """
+  print(" {} | {} | {} ".format(board['1'], board['2'], board['3']))
+  print("-----------")
+  print(" {} | {} | {} ".format(board['4'], board['5'], board['6']))
+  print("-----------")
+  print(" {} | {} | {} ".format(board['7'], board['8'], board['9']))
 
 def clear():
     
@@ -73,7 +94,9 @@ def startMenu():
       break
 
   clear()
+  gameMenu()
+
+def gameMenu():
   display_board(gameboard)
-  
 
 mainMenu()
