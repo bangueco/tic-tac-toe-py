@@ -1,8 +1,9 @@
 from os import system, name
 from classes import Player
 from validation_message import *
+from logic import display_board
 
-gameboard = {'', '', '', '', '', '', '', '', ''}
+gameboard = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
 
 def clear():
     
@@ -70,5 +71,9 @@ def startMenu():
       display_marker_taken_msg()
     else:
       break
+    
+  clear()
+  display_board(gameboard)
+  
 
 mainMenu()
