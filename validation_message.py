@@ -18,3 +18,7 @@ class ValidationMessages():
   @staticmethod
   def display_marker_taken_msg():
     print('Marker is already taken!')
+
+  @staticmethod
+  def display_board_taken_msg():
+    print('This board is already taken!')
