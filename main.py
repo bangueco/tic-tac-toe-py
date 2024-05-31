@@ -103,14 +103,29 @@ def gameMenu():
     if turns == 1:
       print('It\'s player 1 turns')
       print('pick a move between 0-8')
-      player1Move = input('>>> ')
-      player1.place_marker(player1Move)
-      turns = 2
+      while True:
+        player1Move = input('>>> ')
+
+        if Game.gameboard.get(player1Move):
+          ValidationMessages.display_board_taken_msg()
+        else:
+          player1.place_marker(player1Move)
+          turns = 2
+          break
+
     else:
       print('It\'s player 2 turns')
       print('pick a move between 0-8')
       player2Move = input('>>> ')
-      player2.place_marker(player2Move)
-      turns = 1
+      
+      while True:
+        player2Move = input('>>> ')
+
+        if Game.gameboard.get(player2Move):
+          ValidationMessages.display_board_taken_msg()
+        else:
+          player2.place_marker(player2Move)
+          turns = 1
+          break
 
 mainMenu()
