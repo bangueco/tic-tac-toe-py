@@ -1,30 +1,22 @@
 from os import system, name
 from classes import Player
+from logic import Game
 from validation_message import *
 import random
 
-gameboard = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
-gameBoardWinningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
+player1 = ''
+player2 = ''
 
 def display_board(board):
   """
   Display Game Board
   :param board: represents a board
   """
-  print(" {} | {} | {} ".format(board['1'], board['2'], board['3']))
+  print(" {} | {} | {} ".format(board['0'], board['1'], board['2']))
   print("-----------")
-  print(" {} | {} | {} ".format(board['4'], board['5'], board['6']))
+  print(" {} | {} | {} ".format(board['3'], board['4'], board['5']))
   print("-----------")
-  print(" {} | {} | {} ".format(board['7'], board['8'], board['9']))
+  print(" {} | {} | {} ".format(board['6'], board['7'], board['8']))
 
 def clear():
     
@@ -92,11 +84,33 @@ def startMenu():
       display_marker_taken_msg()
     else:
       break
+  
+  # Set player infos
+  global player1, player2
+  player1 = Player(player1Name, player1Marker)
+  player2 = Player(player2Name, player2Marker)
 
   clear()
   gameMenu()
 
 def gameMenu():
-  display_board(gameboard)
+  Game.gameboard['0'] = 'x'
+  # random turns between 1 and 2
+  turns = random.randint(1, 2)
+  roundWin = False
+  while roundWin == False:
+    display_board(Game.gameboard)
+    if turns == 1:
+      print('It\'s player 1 turns')
+      print('pick a move between 0-8')
+      player1Move = input('>>> ')
+      player1.place_marker(player1Move)
+      turns = 2
+    else:
+      print('It\'s player 2 turns')
+      print('pick a move between 0-8')
+      player2Move = input('>>> ')
+      player2.place_marker(player2Move)
+      turns = 1
 
 mainMenu()
