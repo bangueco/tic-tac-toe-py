@@ -42,7 +42,7 @@ def mainMenu():
     elif choice == '2':
       break
     else:
-      display_invalid_input_msg()
+      ValidationMessages.display_invalid_input_msg()
 
 def startMenu():
   markers = {'x', 'o'}
@@ -55,13 +55,13 @@ def startMenu():
     if player1Name:
       break
     else:
-      display_name_validation_msg()
+      ValidationMessages.display_name_validation_msg()
 
   while True:
     player1Marker = input('Enter player1 marker: ').strip().lower()
 
     if player1Marker not in markers:
-      display_marker_validation_msg()
+      ValidationMessages.display_marker_validation_msg()
     else:
       break
 
@@ -69,9 +69,9 @@ def startMenu():
     player2Name = input('Enter player2 name: ').strip()
 
     if not player2Name:
-      display_name_validation_msg()
+      ValidationMessages.display_name_validation_msg()
     elif player2Name == player1Name:
-      display_name_taken_msg()
+      ValidationMessages.display_name_taken_msg()
     else:
       break
   
@@ -79,9 +79,9 @@ def startMenu():
     player2Marker = input('Enter player2 marker: ').strip().lower()
 
     if player2Marker not in markers:
-      display_marker_validation_msg()
+      ValidationMessages.display_marker_validation_msg()
     elif player2Marker == player1Marker:
-      display_marker_taken_msg()
+      ValidationMessages.display_marker_taken_msg()
     else:
       break
   
