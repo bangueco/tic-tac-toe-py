@@ -1,4 +1,4 @@
-class ValidationMessages():
+class ValidationMessages:
   @staticmethod
   def display_marker_validation_msg():
     print('Please enter a valid marker (x/o)')

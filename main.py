@@ -94,7 +94,6 @@ def startMenu():
   gameMenu()
 
 def gameMenu():
-  Game.gameboard['0'] = 'x'
   # random turns between 1 and 2
   turns = random.randint(1, 2)
   roundWin = False
@@ -117,7 +116,7 @@ def gameMenu():
       print('It\'s player 2 turns')
       print('pick a move between 0-8')
       player2Move = input('>>> ')
-      
+
       while True:
         player2Move = input('>>> ')
 
