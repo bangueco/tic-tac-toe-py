@@ -115,7 +115,6 @@ def gameMenu():
     else:
       print('It\'s player 2 turns')
       print('pick a move between 0-8')
-      player2Move = input('>>> ')
 
       while True:
         player2Move = input('>>> ')
