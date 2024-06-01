@@ -96,6 +96,7 @@ def startMenu():
 def gameMenu():
   # random turns between 1 and 2
   turns = random.randint(1, 2)
+  round = 1
   roundWin = False
   while roundWin == False:
     display_board(Game.gameboard)
@@ -112,6 +113,9 @@ def gameMenu():
 
           if Game.check_for_winner():
             print('The winner is player 1!')
+            return
+          elif Game.check_for_winner() is not True and round == 9:
+            print('The game is tie!')
             return
           
           turns = 2
@@ -132,6 +136,8 @@ def gameMenu():
           if Game.check_for_winner():
             print('The winner is player 2!')
             return
+          elif Game.check_for_winner() is not True and round == 9:
+            print('The game is tie!')
           
           turns = 1
           break
