@@ -113,6 +113,8 @@ def gameMenu():
 
           if Game.check_for_winner():
             print('The winner is player 1!')
+            round = 1
+            Game.reset_game_board()
             return
           elif Game.check_for_winner() is not True and round == 9:
             print('The game is tie!')
@@ -135,6 +137,8 @@ def gameMenu():
 
           if Game.check_for_winner():
             print('The winner is player 2!')
+            round = 1
+            Game.reset_game_board()
             return
           elif Game.check_for_winner() is not True and round == 9:
             print('The game is tie!')

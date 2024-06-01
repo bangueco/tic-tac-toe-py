@@ -16,3 +16,8 @@ class Game:
     for row in Game.gameBoardWinningConditions:
       if Game.gameboard[str(row[0])] != '' and Game.gameboard[str(row[0])] == Game.gameboard[str(row[1])] == Game.gameboard[str(row[2])]:
         return True
+  
+  @staticmethod
+  def reset_game_board():
+    for values in Game.gameboard:
+      Game.gameboard[str(values)] = ''
