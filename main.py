@@ -109,6 +109,11 @@ def gameMenu():
           ValidationMessages.display_board_taken_msg()
         else:
           player1.place_marker(player1Move)
+
+          if Game.check_for_winner():
+            print('The winner is player 1!')
+            return
+          
           turns = 2
           break
 
@@ -123,6 +128,11 @@ def gameMenu():
           ValidationMessages.display_board_taken_msg()
         else:
           player2.place_marker(player2Move)
+
+          if Game.check_for_winner():
+            print('The winner is player 2!')
+            return
+          
           turns = 1
           break
 
